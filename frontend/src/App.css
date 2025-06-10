@@ -1,0 +1,45 @@
+@tailwind base;
+@tailwind components;
+p{
+  font-family: "Nunito", sans-serif;
+  @apply text-[#74818F]
+}
+.p{
+   font-family: "Nunito", sans-serif;
+  @apply text-[#74818F]
+}
+.options{
+  border-bottom:1px solid  #ddd;
+  @apply py-[10px] px-[5px] cursor-pointer hover:text-[#007762]
+}
+.navlink{
+  @apply hover:text-[white] hover:bg-[#007762] py-[20px]  px-[9px] lg:px-[15px] xl:px-[20px] duration-500 cursor-pointer
+}
+.mobnavlink{
+  @apply text-[white] hover:text-[#007762] hover:bg-[white] py-[15px] px-[20px] lg:px-[30px] duration-500 cursor-pointer
+}
+.btn{
+  @apply w-[100%] py-[10px] bg-[#007762] hover:border hover:border-[#007762] hover:bg-[white] hover:cursor-pointer  text-white hover:text-[#007762] duration-500 rounded-[3px];   
+}
+.btn2{
+  @apply w-[100%]   py-[10px] hover:border text-[#007762]  bg-[white] hover:bg-[#007762] hover:cursor-pointer  hover:text-white  duration-500 rounded-[3px] ;   
+}
+.input{
+  @apply w-[100%] border my-[7px] text-[17px] px-[5px] py-[7px] !text-[#747D88] rounded-[2px] 
+}
+input,textarea{
+   @apply focus:outline-0  focus:ring-[2px] ring-[#007762]
+}
+@tailwind utilities;
+.color{
+  color: #007762;
+}
+html,body{
+  width: 100vw;
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
+th:hover,td:hover{
+  @apply  cursor-pointer
+}
+
