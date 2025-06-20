@@ -75,7 +75,7 @@ export default function Navbar() {
                         {user?.role == "admin" && <Link to="/dashboard" className='navlink'>Dashboard</Link>}
                         {user?.role == "admin" && <Link to="/allusers" className='navlink'>Users</Link>}
                         {user?.role == "admin" && <Link to="/allproducts" className='navlink'>Products</Link>}
-                        <Link to="/addproduct" className='navlink whitespace-nowrap'>Add Product</Link>
+                        { token && <Link to="/addproduct" className='navlink whitespace-nowrap'>Add Product</Link>}
                         <Link to="/contact" className='navlink'>Contact</Link>
                     </ul>
 
@@ -110,7 +110,7 @@ export default function Navbar() {
                         <Link to="/profile" className='block md:hidden absolute top-[20px] right-[70px]'>
                             <img
                                 src={user.userimg ? `http://localhost:3000${user.userimg}` : userimg}
-                                className='h-[35px] w-[35px] object-cover rounded-md hover:rounded-full transition-all duration-500 cursor-pointer hover:scale-[1.08] '
+                                className='h-[35px] w-[35px] object-cover rounded-full hover:rounded-full transition-all duration-500 cursor-pointer hover:scale-[1.08] '
                                 alt="user"
                             />
                         </Link>

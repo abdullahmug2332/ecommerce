@@ -8,7 +8,7 @@ export default function Order() {
     const navigate = useNavigate();
     const cart = useSelector((state) => state.cart.items);
     const user = useSelector((state) => state.auth.user);
-    const dispatch = useDispatch();
+    const dispatch = useDispatch(); 
     useEffect(() => {
         window.scrollTo(0, 0);
     }, []);

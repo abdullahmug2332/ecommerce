@@ -43,3 +43,17 @@ th:hover,td:hover{
   @apply  cursor-pointer
 }
 
+
+.hero2{
+  background-image: url("./assets/heroedited.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.hero3{
+  background-image: url("./assets/hero.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+

@@ -4,6 +4,8 @@ import { removeFromCart, clearCart } from '../redux/cartSlice'; // Import action
 import { FaBagShopping } from "react-icons/fa6";
 import { incrementQuantity, decrementQuantity } from '../redux/cartSlice';
 import { Link } from 'react-router-dom';
+import { GoX } from "react-icons/go";
+
 
 const Cart = () => {
     const cart = useSelector((state) => state.cart.items); // Get cart items from Redux
@@ -11,7 +13,7 @@ const Cart = () => {
     useEffect(() => {
         window.scrollTo(0, 0);
     }, []);
-    
+
     const handleRemove = (product) => {
         dispatch(removeFromCart(product)); // Remove product from the cart
     };
@@ -31,7 +33,9 @@ const Cart = () => {
         dispatch(decrementQuantity(product));
     };
 
-
+    const handleRemoveproduct = (product) => {
+        dispatch(removeFromCart(product));
+    };
     return (
         <div className="w-[95%] md:w-[80%] mx-auto mt-[100px]">
             <div className='flex justify-center items-center gap-2 my-[40px]'>
@@ -39,7 +43,7 @@ const Cart = () => {
                 <FaBagShopping className='text-[23px] color cursor-pointer duration-500  hover:scale-[1.08]' />
             </div>
             <div className='flex items-center' >
-                <p className='w-[30%] md:w-[55%] pl-[10px] md:pl-[30px] color text-[25px] md:text-[35px]'>Product</p>
+                <p className='w-[28%] md:w-[52%] pl-[10px] md:pl-[30px] color text-[25px] md:text-[35px]'>Product</p>
                 <p className='w-[23%] md:w-[15%] text-center color'>Price</p>
                 <p className='w-[23%] md:w-[15%] text-center color'>Quantity</p>
                 <p className='w-[23%] md:w-[15%] text-center color'>Total</p>
@@ -64,9 +68,15 @@ const Cart = () => {
                                 <div className='w-[23%] md:w-[15%] flex items-center justify-center gap-2'>
                                     <button onClick={() => handleDecrement(item)} className=' w-[30px] text-[20px] border color font-bold px-[5px] rounded-[2px] border-[#007762] hover:bg-[#007762] hover:text-white'>-</button>
                                     <p className='color'> {item.quantity}</p>
-                                    <button onClick={() => handleIncrement(item)} className=' w-[30px] text-[20px] border color font-bold px-[5px] rounded-[2px] border-[#007762] hover:bg-[#007762] hover:text-white'>+</button>
+                                    <button
+                                        onClick={() => handleIncrement(item)}
+                                        disabled={item.quantity >= item.stock}
+                                        className={`w-[30px] text-[20px] border font-bold px-[5px] rounded-[2px] 
+                                        ${item.quantity >= item.stock ? 'bg-gray-300 text-gray-500 cursor-not-allowed' : 'color border-[#007762] hover:bg-[#007762] hover:text-white'}`}> +</button>
+
                                 </div>
                                 <div className='w-[23%] md:w-[15%] text-center p'>${item.quantity * item.price}</div>
+                                <GoX onClick={() => handleRemoveproduct(item)} className='self-center text-center  text-[30px] text-[#007762] hover:rotate-90 duration-500 ml-auto' />
                             </div>
                             <hr />
                         </div>
